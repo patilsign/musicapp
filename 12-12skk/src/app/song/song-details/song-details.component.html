@@ -1,0 +1,56 @@
+
+
+<div class="card bg-dark text-white mb-3">
+    <!--edit / add form-->
+    <form novalidate (submit)="save(f)" #f="ngForm" class="card-body">
+
+      <input type="number" [ngModel]="editSong?.price" name="price" class="form-control bg-dark text-white m-1"
+        placeholder="Price *">
+
+      <span class="m-1">Rate:</span>
+      <div class="btn-group m-1" data-toggle="buttons">
+        <label class="btn btn-secondary" *ngFor="let val of [1,2,3,4,5]"
+          [ngClass]="{'btn-warning': editSong?.rating == val}">
+          <input type="radio" required name="rate" checked [value]="val" [(ngModel)]="editSong.rating"> {{val}}
+        </label>
+      </div>
+
+
+      <textarea [ngModel]="editSong?.desc" name="desc" class="form-control bg-dark text-white m-1"
+        placeholder="description (not required)"></textarea>
+
+      <div class="btn-group btn-group-sm m-1">
+        <button class="btn btn-warning" type="submit" [disabled]="f.invalid">
+          {{editSong?._id ? 'SAVE' : 'ADD'}}
+        </button>
+
+        <button class="btn btn-light" type="button" *ngIf="currentSong?._id" (click)="reset()">
+          ADD NEW
+        </button>
+      </div>
+    </form>
+</div>  <div class="row songs-header">
+  <div class="col-4">Title</div>
+  <div class="col-4">Album</div>
+  <div class="col-3">Year</div>
+  <div class="col-1">Rating</div>
+</div>
+<div  class="list-group-item list-group-item-action"
+  >
+
+  <div class="row">
+    <div class="col-4"><img src="currentSong.picture" aalt='noimage' /></div>
+    <div class="col-4">
+      <strong>
+        {{currentSong.album}}
+      </strong> </div>
+    <div class="col-3"><strong>
+        {{currentSong.year}}
+      </strong> </div>
+    <div class="col-1">
+      <strong>
+        {{editSong.rating}}
+      </strong>
+    </div>
+  </div>
+</div>

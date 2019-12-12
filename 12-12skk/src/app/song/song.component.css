@@ -1,0 +1,19 @@
+/* 
+.song-list{
+    width:75%;
+    display:flex;
+    margin:10px auto
+}
+    .input-group.md-form.form-sm.form-2 input.lime-border {
+    border: 1px solid #cddc39;
+    }
+    .form-control:focus{
+        box-shadow: initial;
+    } */
+  .songs-header{
+      background-color: black;
+      color: white;
+      border:1px solid silver;
+      margin-left: 0px;
+      margin-right: 0px;
+  }  
